@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +15,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
-
-
-
-// Route::get('/home', 'bnicontroller@index');
+Route::get('/home/create', 'bnicontroller@show');
+Route::get('/home/request', 'filecontroller@show');
+Route::get('/download/{id?}','filecontroller@ftpfile')->where('id', '(.*)');
+//Route::get('/home/request', 'bnicontroller@index');
 Route::resource('/home', 'bnicontroller')->only([
-    'index', 'show', 'create', 'store','otong'
+    'index', 'create', 'store','show'
 ]);
 
+
+//Route::get('/home/request', function(){
+//	$nama = 'lazu';
+//	View::make("request")->with('nama', $nama);
+//});
+
 // Route::get('/bni','bnicontroller@index');
+?>

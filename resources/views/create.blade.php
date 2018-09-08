@@ -8,6 +8,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
+                
 
                 <div class="panel-body create-form">
                 @if ($errors->any())
@@ -26,6 +27,14 @@
                         <tr>
                             <td>
                                 <h1>BNI320</h1>
+                                <br>
+                                <h7> Format : 16 digit tanpa cek digit (spasi) ddmmyyyy (spasi) ddmmyyyy</h7>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h7>Batch ID :</h7>
+                                <h7> <input type="text" class="form-control" name="batch_id" value="<?php $rand = rand(1,100); $date = date("dmYis"); $batch_id= 'BNI320'.$rand.$date; echo $batch_id ?>" align="center" readonly/></h7>
                             </td>
                         </tr>
                     </table>

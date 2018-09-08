@@ -6,14 +6,37 @@ use Illuminate\Http\Request;
 use App\rcmodel;
 use App\rcusers;
 use Auth;
+use Illuminate\Support\Str;
 
 class bnicontroller extends Controller
 {
+
+
+ //public function show(){
+ ////$uuid = return (string) Str::uuid();
+ //$random = str_random(40);
+ //return view (home/create, ['batchids' => $random]);
+ //}
       /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+
+   // public function show(){
+   //  $rand = rand(1,100); 
+   //  $date = date("dmYis"); 
+   //  $batch_id= $rand.$date;
+   //  //$batch_id = str_random(60);
+   //  return view('create', ['batch_id' => $batch_id]);
+   //  //return view('create', compact($batch_id));
+   //  //return view('batch_id');
+   // }
+
+   
+
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,7 +46,7 @@ class bnicontroller extends Controller
         $rctable = rcmodel::all();
         
         return view('/home', compact($rctable));
-   }
+    }
 
      /**
      * Show the form for creating a new resource.
@@ -43,12 +66,11 @@ class bnicontroller extends Controller
      */
     public function store(Request $request)
     {
-        
-        
-        
-        
-        
-
+        //$rand = rand(1,100); 
+        //$date = date("dmYis"); 
+        //$batch_id= $rand.$date;
+        //return view('create', ['batch_id' => $batch_id]);
+    
       // $rules = [
       //         'norek1' => 'required|numeric|digits:16',
       //         'startdate1' => 'required|numeric|digits:8',
@@ -87,11 +109,19 @@ class bnicontroller extends Controller
         $rctable->startdate = $request->{'startdate'.$i};
         $rctable->enddate = $request->{'enddate'.$i};
         $rctable->user_id = Auth::user()->id;
+        $rctable->status = "waiting";
+        $rctable->batch_id = $request->{'batch_id'};
         $rctable->save(); 
-        $txt=$rctable->norek." ".$rctable->startdate." ".$rctable->enddate." ".$rctable->id." ".Auth::user()->id."\n";
+        $txt=$a." ".$b." ".$c." ".$rctable->id." ".Auth::user()->id." ".$rctable->status." ".$rctable->batch_id."\n";
+        Storage::append('waiting/'.$request->{'batch_id'}.'.txt.unprocess',$txt);
+        
+
+        
+
             }
+
         }
-        Storage::put('BNI320MAN.txt',$txt);
+        
         $request->session()->flash('status', 'Job is requested!');     
         return redirect('/home');       
          }
@@ -99,6 +129,8 @@ class bnicontroller extends Controller
     }
 
 }
+
+
 
 
 //$this->validate($request, [

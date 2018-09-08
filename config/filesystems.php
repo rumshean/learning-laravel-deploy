@@ -57,6 +57,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'output' => [
+            'driver' => 'local',
+            'root' => storage_path('app/output'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_KEY'),
@@ -65,6 +72,20 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+    ],
+
+    'ftp' => [
+    'driver'   => 'ftp',
+    'host'     => '10.70.12.202',
+    'username' => 'ftpuser',
+    'password' => 'ftpuser',
+
+    // Optional FTP Settings...
+    // 'port'     => 21,
+    // 'root'     => '',
+    // 'passive'  => true,
+    // 'ssl'      => true,
+    // 'timeout'  => 30,
     ],
 
 ];

@@ -10,6 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Choose what you need</div>
 
+
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -30,6 +31,9 @@
                                      <td>
                                         <h1>BNI360</h1>
                                     </td>
+                                </tr>
+                                <tr>
+                                    <h1 align="center"><a href="/home/request">My request</h1>
                                 </tr>
                             </table>                     
                         </div>
