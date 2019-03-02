@@ -43,9 +43,11 @@ class bnicontroller extends Controller
     }
     
    public function index(){
-        $rctable = rcmodel::all();
-        
-        return view('/home', compact($rctable));
+        return view('/home');
+    }
+
+    public function index1(){
+        return view('/home/create');
     }
 
      /**
@@ -55,7 +57,8 @@ class bnicontroller extends Controller
      */
     public function create()
     {
-        return view('/create');
+        $rctable = rcmodel::all();
+        return view('create', compact($rctable));
     }
 
     /**
@@ -79,7 +82,7 @@ class bnicontroller extends Controller
       // $validasi = Validator::make($request->all(), $rules);
 
         for($j=1;$j<$request->hidden;$j++) {
-       $validator = $request->validate([
+            $validator = $request->validate([
             'norek'.$j => 'required|numeric|digits:16',
             'startdate'.$j => 'required|numeric|digits:8',
             'enddate'.$j => 'required|numeric|digits:8'
@@ -112,7 +115,7 @@ class bnicontroller extends Controller
         $rctable->status = "waiting";
         $rctable->batch_id = $request->{'batch_id'};
         $rctable->save(); 
-        $txt=$a." ".$b." ".$c." ".$rctable->id." ".Auth::user()->id." ".$rctable->status." ".$rctable->batch_id."\n";
+        $txt=$a." ".$b." ".$c." ".$rctable->id." ".Auth::user()->id." ".$rctable->status." ".$rctable->batch_id;
         Storage::append('waiting/'.$request->{'batch_id'}.'.txt.unprocess',$txt);
         
 
@@ -127,6 +130,10 @@ class bnicontroller extends Controller
          }
       
     }
+
+   
+
+    
 
 }
 

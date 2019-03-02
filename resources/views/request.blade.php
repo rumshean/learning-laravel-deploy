@@ -28,7 +28,7 @@
                     <?php
                  //echo $basename;
                    $basename   = basename($file);
-                   $userid     = substr($basename,56,5).$user;
+                   $userid     = "user"."_".$user;
                    $pos        = strpos($basename, $userid);
                   
                     if($pos !== false){

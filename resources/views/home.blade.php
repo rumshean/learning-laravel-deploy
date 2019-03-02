@@ -23,13 +23,13 @@
                                         <h1><a href="/home/create">BNI320</a></h1>
                                     </td>
                                      <td>
-                                        <h1>BNI321</h1>
+                                        <h1><a href="/home/create2">BNI321</h1>
                                     </td>
                                      <td>
-                                        <h1>BNI322</h1>
+                                        <h1><a href="/home/create1">BNI322</a></h1>
                                     </td>
                                      <td>
-                                        <h1>BNI360</h1>
+                                        <h1><a href="/home/create3">BNI360</h1>
                                     </td>
                                 </tr>
                                 <tr>

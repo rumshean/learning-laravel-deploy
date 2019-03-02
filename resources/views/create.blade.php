@@ -47,9 +47,9 @@
                                 <th>EndDate</th>
                             </tr>
                             <tr>
-                                <td><input type="text" class="form-control" name="norek1"/></td>
-                                <td><input type="text" class="form-control" name="startdate1"/></td>
-                                <td><input type="text" class="form-control" name="enddate1" /></td>
+                                <td><input type="text" class="form-control " name="norek1"/></td>
+                                <td><input type="text" class="form-control " name="startdate1"/></td>
+                                <td><input type="text" class="form-control " name="enddate1" /></td>
                              </tr>
                          </tbody>
                        </table>
